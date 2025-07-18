@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  mqtt2rtsp:
+    build: .
+    image: mqtt2rtsp
+    container_name: mqtt2rtsp
+    restart: unless-stopped
+    environment:
+      - MQTT_BROKER=${MQTT_BROKER}
+      - MQTT_PORT=${MQTT_PORT}
+      - MQTT_USERNAME=${MQTT_USERNAME}
+      - MQTT_PASSWORD=${MQTT_PASSWORD}
+      - MQTT_STREAM_MAP=${MQTT_STREAM_MAP}
+    ports:
+      - "8554:8554"
